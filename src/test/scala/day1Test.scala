@@ -11,6 +11,7 @@ class day1Test extends FlatSpec {
 
     val realInput = Source.fromResource("inputDay1.csv").getLines.toList.map(_.toInt)
     val realInput2 = Source.fromResource("inputDay1part2.csv").getLines.toList.map(_.toInt)
+    print(getMultipleOfTwo(realInput))
     print(getMultipleOfThree(realInput2))
 
   }
