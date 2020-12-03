@@ -16,7 +16,6 @@ class Day2Test extends FlatSpec {
 
   it should "handle list of passwords" in {
     val input = "1-3 a: aaa\n1-3 a: aaaa\n2-3 b: bsbc"
-//    Source.fromResource("inputDay2part1.csv").getLines.toList.map(_.toInt)
     assert(Day2.checkPasswordsCount(input.split("\\n").toList).equals(2))
   }
 
@@ -28,8 +27,8 @@ class Day2Test extends FlatSpec {
   it should "do the thing" in {
 
     val input = Source.fromResource("inputDay2part1.csv").getLines.toList
-//    print(Day2.checkPasswordsCount(input))
-    print(Day2.checkPasswordsPositions(input))
+    println(Day2.checkPasswordsCount(input))
+    println(Day2.checkPasswordsPositions(input))
 
   }
 }
