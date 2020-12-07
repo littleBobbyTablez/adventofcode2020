@@ -31,7 +31,7 @@ class Day7Test extends FlatSpec {
   it should "find containing bags" in {
     val input = Source.fromResource("inputDay7part1.csv").getLines().toList.map(parseRule).toMap
 
-    val i = Day7.findRequredNumber(input, Map("shiny gold" -> 1), 0)
+    val i = Day7.findRequiredNumber(input, "shiny gold")
     println(i)
 //    assert(i.equals(32))
 

@@ -1,17 +1,20 @@
 import scala.annotation.tailrec
 
 object Day7 {
-  def findRequredNumber(input: Map[String, Map[String, Int]], contentColors: Map[String, Int], bags: Int): Int = {
+
+  def findRequiredNumber(input: Map[String, Map[String, Int]], contentColors: String): Int = {
+    val relevant = input.filter(x => contentColors.equals(x._1))
+    relevant.map(col => findRequiredNumber(input, relevant(col._1))).toList.sum
+  }
+
+  def findRequiredNumber(input: Map[String, Map[String, Int]], contentColors: Map[String, Int]): Int = {
     val relevant = input.filter(x => contentColors.contains(x._1))
 
     if(relevant.isEmpty){
       contentColors.values.toList.sum
     } else {
-      contentColors.map(col => col._2 + col._2 * findRequredNumber(input, relevant(col._1), 0)).toList.sum
+      contentColors.map(col => col._2 + col._2 * findRequiredNumber(input, relevant(col._1))).toList.sum
     }
-
-
-
   }
 
   def findOutmostColors(input: Map[String, Map[String, Int]], contentColors: Set[String]): Set[String] = {
