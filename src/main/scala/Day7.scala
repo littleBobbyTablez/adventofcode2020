@@ -25,8 +25,6 @@ object Day7 {
     } else {
       set ++ findOutmostColors(input, set)
     }
-
-
   }
 
   def parseRule(input: String): (String, Map[String, Int]) = {
@@ -44,5 +42,4 @@ object Day7 {
       (color, content)
     }
   }
-
 }
