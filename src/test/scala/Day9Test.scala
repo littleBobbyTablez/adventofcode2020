@@ -1,3 +1,4 @@
+import Day9.{findFirstNotValid, findSetRec}
 import org.scalatest.FlatSpec
 
 import scala.io.Source
@@ -14,22 +15,21 @@ class Day9Test extends FlatSpec {
   it should "check List" in {
     val input = Source.fromResource("exampleInputDay9.csv").getLines().map(BigInt(_)).toList
 
-    assert(Day9.findFirstNotValid(input, 5).equals(BigInt(127)))
-
+    assert(findFirstNotValid(input, 5).equals(BigInt(127)))
   }
 
   it should "do the thing" in {
     val input = Source.fromResource("inputDay9part1.csv").getLines().map(BigInt(_)).toList
 
-    println(Day9.findFirstNotValid(input, 25))
-
-    println(Day9.findSetRec(input, 2089807806,3))
+    val part1 = findFirstNotValid(input, 25)
+    println(part1)
+    println(findSetRec(input, part1))
   }
 
   it should "find set" in {
     val input = Source.fromResource("exampleInputDay9.csv").getLines().map(BigInt(_)).toList
 
-    assert(Day9.findSetRec(input, 127,3).equals(BigInt(62)))
+    assert(findSetRec(input, 127).equals(BigInt(62)))
   }
 
 }

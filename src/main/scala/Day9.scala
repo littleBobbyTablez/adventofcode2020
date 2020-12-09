@@ -10,7 +10,6 @@ object Day9 {
       .filterNot(x =>
         checkValidity(x._1, input.zipWithIndex.filter(y => (x._2 - i until x._2).contains(y._2)).map(_._1)))
       .head._1
-
   }
 
   def checkValidity(number: BigInt, preamp: List[BigInt]): Boolean = {
@@ -18,6 +17,12 @@ object Day9 {
 
     candidates.contains(number)
   }
+
+
+  def findSetRec(input: List[BigInt], sum: BigInt): BigInt = {
+    findSetRec(input, sum, 3)
+  }
+
   @tailrec
   def findSetRec(input: List[BigInt], sum: BigInt, lenght: Int): BigInt = {
 
@@ -30,6 +35,11 @@ object Day9 {
     }
   }
 
+  def findSetofNumbers(input: List[BigInt], sum: BigInt, length: Int): List[List[BigInt]] = {
+    toGroups(input, length)
+      .filter(_.sum.equals(sum))
+  }
+
   def toGroups(input: List[BigInt], length: Int): List[List[BigInt]] = {
     if (input.length.equals(length)) {
       List(input)
@@ -37,13 +47,5 @@ object Day9 {
       val group: List[BigInt] = input.take(length)
       List(group):::toGroups(input.tail, length)
     }
-
   }
-
-  def findSetofNumbers(input: List[BigInt], sum: BigInt, length: Int): List[List[BigInt]] = {
-    toGroups(input, length)
-      .filter(_.sum.equals(sum))
-  }
-
-
 }
