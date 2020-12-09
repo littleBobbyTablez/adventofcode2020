@@ -1,5 +1,3 @@
-import com.sun.tools.doclets.internal.toolkit.util.DocFinder.Input
-
 object Day8 {
   def findCorruption(input: List[List[String]], acc: Int): List[(Int, String)] = {
    val fixedInput: List[(List[String], Int)] = (input:::List(List("end", "+0"))).zipWithIndex
