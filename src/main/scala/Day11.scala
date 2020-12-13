@@ -22,9 +22,9 @@ object Day11 {
   def checkAllWithSight(input: List[List[String]]): List[List[String]] = {
     val transformed = transformInput(input)
 
-    val indexed = input.map(x => x.zipWithIndex).zipWithIndex
+    val indexed = input.map(x => x.zipWithIndex.toVector).zipWithIndex.toVector
 
-    indexed.map(x => x._1.map(y => checkSeatWithSight(x._2 + 1, y._2 + 1, transformed)))
+    indexed.par.map(x => x._1.par.map(y => checkSeatWithSight(x._2 + 1, y._2 + 1, transformed)).toList).toList
   }
 
   def checkSeatWithSight(x: Int, y: Int, input: List[List[String]]): String = {
