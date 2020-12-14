@@ -35,4 +35,12 @@ class Day13Test extends FlatSpec {
     assert(uberbus.equals(91.toLong, 0.toLong, 77.toLong))
 
   }
+
+
+  it should "find adresses" in {
+    val entry = List("mem[26]", "1")
+    val mask = ("00000000000000000000000000000000X0XX")
+
+    Day14.findAdresses(entry, mask)
+  }
 }
