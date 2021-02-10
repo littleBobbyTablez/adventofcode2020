@@ -10,3 +10,8 @@ project/plugins/project/
 .history
 .cache
 .lib/
+.bloop
+.metals
+.vscode
+.DS_Store
+metals.sbt
